@@ -5,21 +5,28 @@ document.querySelector("form[name='save_data']").addEventListener('submit',funct
     const message = event.target.message.value;
 
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("message", message);
+let contactSection = document.getElementsByClassName("contacts-section");
 
+
+
+//Escribir
+localStorage.setItem(
+    "user",
+    JSON.stringify({
+      "nameKey": name,
+      "emailKey": email,
+      "messageKey": message
+    })
+  );
+
+  //Leer
     
+    contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1><p>Usuario: ${user.nameKey}, E-mail: ${user.emailKey}, Mensaje: ${messageKey}</p>`
+
 })
 
 
-
-
-
-
-
-
-
-
-
-/* console.log(`Hola, mi nombre es ${firstName} ${lastName}`); */
+const showContacts = () => {
+    
+}
+var user = JSON.parse(localStorage.getItem("user"));
