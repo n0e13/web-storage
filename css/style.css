@@ -1,0 +1,14 @@
+.form_local {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+input[type=submit] {
+    margin-top: 15px;
+}
