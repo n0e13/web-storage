@@ -1,32 +1,40 @@
-document.querySelector("form[name='save_data']").addEventListener('submit',function(event){
+document.querySelector("form[name='save_data']").addEventListener('submit', function (event) {
 
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const message = event.target.message.value;
+  const name = event.target.name.value;
+  const email = event.target.email.value;
+  const message = event.target.message.value;
 
-
-let contactSection = document.getElementsByClassName("contacts-section");
-
-
-
-//Escribir
-localStorage.setItem(
-    "user",
-    JSON.stringify({
-      "nameKey": name,
-      "emailKey": email,
-      "messageKey": message
-    })
-  );
-
-  //Leer
-    
-    contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1><p>Usuario: ${user.nameKey}, E-mail: ${user.emailKey}, Mensaje: ${messageKey}</p>`
+  fSaveUser(name, email, message);
 
 })
 
+function fSaveUser(name, email, message) {
+  // Primero leemos si hay algo almacenado y si no creamos un array vacío
+  let aUsers = JSON.parse(localStorage.getItem("user") || "[]");
 
-const showContacts = () => {
-    
+  // creo el nuevo objeto usuario
+    let oNewUser = {
+      "nameKey": name,
+      "emailKey": email,
+      "messageKey": message
+    };
+
+    // añado el objeto al array
+    aUsers.push(oNewUser);
+
+    //Escribir
+    localStorage.setItem(
+      "user",
+      JSON.stringify(aUsers)
+    );
+  
 }
-var user = JSON.parse(localStorage.getItem("user"));
+
+function fWriteUser() {
+  let contactSection = document.getElementsByClassName("contacts-section");
+
+  //Leer
+
+  contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1><p>Usuario: ${user.nameKey}, E-mail: ${user.emailKey}, Mensaje: ${messageKey}</p>`
+
+}
