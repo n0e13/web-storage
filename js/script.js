@@ -111,16 +111,16 @@ const readAllUsers = () => {
 }
 
 
-/* // borrar documentos (usuarios)
-document.querySelector("").addEventListener('click', function (event) {
+ // borrar documentos (usuarios)
+document.querySelector(".btn_deleteAll").addEventListener('click', function (event) {
 
-db.collection("contacts-section").delete().then(() => {
+db.collection("contacts-section").doc("doc").delete().then(() => {
   console.log("Document successfully deleted!");
 }).catch((error) => {
   console.error("Error removing document: ", error);
 });
 
-} */
+} );
 
 
 /* db.collection("contacts-section").doc("DC").delete().then(() => {
@@ -128,22 +128,6 @@ db.collection("contacts-section").delete().then(() => {
 }).catch((error) => {
   console.error("Error removing document: ", error);
 }); */
-
-/* const readAllUsers = (born) => {
-  db.collection("usuarios-firebase")
-    .where("born", "==", born)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-      });
-    });
-};
-readAllUsers(4) */
-
-
-
-
 
 
 
