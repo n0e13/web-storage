@@ -105,7 +105,8 @@ const readAllUsers = () => {
           //Leer
 
           contactSection.innerHTML += `<p>Usuario: ${doc.data().nombre}, E-mail: ${doc.data().email}, Foto: ${doc.data().foto}, Mensaje: ${doc.data().mensaje}</p>`
-console.log(doc)
+
+
       });
   });
 }
