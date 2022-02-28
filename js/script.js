@@ -90,29 +90,31 @@ document.querySelector("form[name='save_data']").addEventListener('submit', func
     nombre: name
   });
 
+  readAllUsers();
+
+
 })
 
+const readAllUsers = () => {
+  let contactSection = document.getElementById("contacts-section");
+  contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1>`;
 
+  db.collection("usuarios-firebase").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          //Leer
 
+          contactSection.innerHTML += `<p>Usuario: ${doc.nombre}, E-mail: ${doc.email}, Foto: ${doc.foto}, Mensaje: ${doc.mensaje}</p>`
 
-
-
-
-
-
-
-/* document.getElementById("crear").addEventListener("click", () => {
-  const first = prompt("Introduce nombre");
-  const last = prompt("introduce apellido");
-  createUser({
-    first,
-    last,
-    born: 1191,
-    otro: "cafe",
+      });
   });
-});
-const readAllUsers = (born) => {
-  db.collection("users")
+}
+
+
+
+
+/* const readAllUsers = (born) => {
+  db.collection("usuarios-firebase")
     .where("born", "==", born)
     .get()
     .then((querySnapshot) => {
@@ -121,7 +123,16 @@ const readAllUsers = (born) => {
       });
     });
 };
-//readAllUsers(1224)
+readAllUsers(4) */
+
+
+
+
+
+
+
+
+/*
 // Read ONE
 //busca por id y cuando lo tengas dime lo que hay.
 function readOne(id) {
