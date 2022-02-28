@@ -100,18 +100,34 @@ const readAllUsers = () => {
   contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1>`;
 
   db.collection("usuarios-firebase").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          //Leer
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      //Leer
 
-          contactSection.innerHTML += `<p>Usuario: ${doc.data().nombre}, E-mail: ${doc.data().email}, Foto: ${doc.data().foto}, Mensaje: ${doc.data().mensaje}</p>`
-console.log(doc)
-      });
+      contactSection.innerHTML += `<p>Usuario: ${doc.data().nombre}, E-mail: ${doc.data().email}, Foto: ${doc.data().foto}, Mensaje: ${doc.data().mensaje}</p>`
+      console.log(doc)
+    });
   });
 }
 
 
+// borrar documentos (usuarios)
+document.querySelector("").addEventListener('click', function (event) {
 
+db.collection("contacts-section").delete().then(() => {
+  console.log("Document successfully deleted!");
+}).catch((error) => {
+  console.error("Error removing document: ", error);
+});
+
+}
+
+
+/* db.collection("contacts-section").doc("DC").delete().then(() => {
+  console.log("Document successfully deleted!");
+}).catch((error) => {
+  console.error("Error removing document: ", error);
+}); */
 
 /* const readAllUsers = (born) => {
   db.collection("usuarios-firebase")
