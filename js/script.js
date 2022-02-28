@@ -4,11 +4,11 @@ document.querySelector("form[name='save_data']").addEventListener('submit', func
   const email = event.target.email.value;
   const message = event.target.message.value;
 
-  fSaveUser(name, email, message);
+  saveUser(name, email, message);
 
 })
 
-function fSaveUser(name, email, message) {
+function saveUser(name, email, message) {
   // Primero leemos si hay algo almacenado y si no creamos un array vacío
   let aUsers = JSON.parse(localStorage.getItem("user") || "[]");
 
@@ -27,14 +27,16 @@ function fSaveUser(name, email, message) {
       "user",
       JSON.stringify(aUsers)
     );
-  
+
+    // Llamamos a la función escribir para que lo muestre en pantalla
+    writeUser()
 }
 
-function fWriteUser() {
+function writeUser() {
   let contactSection = document.getElementsByClassName("contacts-section");
 
   //Leer
-
+  let user = JSON.parse(localStorage.getItem("user") || "[]");
   contactSection.innerHTML = `<h1>Estos son los contactos guardados:</h1><p>Usuario: ${user.nameKey}, E-mail: ${user.emailKey}, Mensaje: ${messageKey}</p>`
 
 }
