@@ -104,8 +104,8 @@ const readAllUsers = () => {
           // doc.data() is never undefined for query doc snapshots
           //Leer
 
-          contactSection.innerHTML += `<p>Usuario: ${doc.nombre}, E-mail: ${doc.email}, Foto: ${doc.foto}, Mensaje: ${doc.mensaje}</p>`
-
+          contactSection.innerHTML += `<p>Usuario: ${doc.data().nombre}, E-mail: ${doc.data().email}, Foto: ${doc.data().foto}, Mensaje: ${doc.data().mensaje}</p>`
+console.log(doc)
       });
   });
 }
