@@ -103,7 +103,9 @@ const readAllUsers = () => {
       querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           //Leer
+
           contactSection.innerHTML += `<p>Usuario: ${doc.data().nombre}, E-mail: ${doc.data().email}, Foto: ${doc.data().foto}, Mensaje: ${doc.data().mensaje}</p>`
+
 
       });
   });
