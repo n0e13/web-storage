@@ -111,7 +111,7 @@ const readAllUsers = () => {
 }
 
 
-// borrar documentos (usuarios)
+/* // borrar documentos (usuarios)
 document.querySelector("").addEventListener('click', function (event) {
 
 db.collection("contacts-section").delete().then(() => {
@@ -120,7 +120,7 @@ db.collection("contacts-section").delete().then(() => {
   console.error("Error removing document: ", error);
 });
 
-}
+} */
 
 
 /* db.collection("contacts-section").doc("DC").delete().then(() => {
